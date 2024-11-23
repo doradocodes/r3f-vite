@@ -44,8 +44,9 @@ export default function Box(props) {
             castShadow
             receiveShadow
         >
-            <boxGeometry args={[1, 1, 1]} />
-            <meshStandardMaterial color={hovered ? 'hotpink' : 'white'} />
+            {/*<boxGeometry args={[1, 1, 1]} />*/}
+            <sphereGeometry args={[0.5, 32, 32]} /> {/* Adjust radius and detail */}
+            <meshStandardMaterial color={hovered ? 'hotpink' : 'white'}/>
         </mesh>
     )
 }

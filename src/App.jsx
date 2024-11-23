@@ -10,6 +10,10 @@ function App() {
             <Canvas
                 style={{width: '100vw', height: '100vh'}}
             >
+                <camera
+                    position={[0, 0, 0]}
+                    zoom={0.5}
+                />
                 <OrbitControls
                     // enablePan={false}
                     // enableZoom={false}
