@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "base": "/r3f-vite",
   "homepage": "https://doradocodes.github.io/r3f-vite",
   "scripts": {
     "dev": "vite",
