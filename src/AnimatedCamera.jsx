@@ -13,6 +13,8 @@ export default function AnimatedCamera() {
                 y: "+=6.28319",
                 duration: 60,
                 ease: 'linear',
+                repeat: -1,
+                yoyo: true,
                 // onUpdate: () => cameraRef.current.updateProjectionMatrix(), // Apply the changes
                 // onStart: () => console.log("Camera zoom animation started (ref)"), // Debugging line
             });
