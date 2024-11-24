@@ -11,3 +11,10 @@
   color: white;
 }
 
+.wish_form {
+    position: fixed;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 1;
+}

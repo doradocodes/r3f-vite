@@ -60,7 +60,7 @@ function App() {
         <div
             className={'App'}
         >
-            <form onSubmit={submitWish}>
+            <form className="wish_form" onSubmit={submitWish}>
                 <input type="text" name="content" placeholder={'Send me a wish'}/>
                 <button>Send</button>
             </form>

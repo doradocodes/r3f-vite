@@ -3,15 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "base": "/r3f-vite",
-  "homepage": "https://doradocodes.github.io/r3f-vite",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@react-three/drei": "^9.117.3",
