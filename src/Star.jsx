@@ -1,8 +1,9 @@
 import {useEffect, useRef, useState} from "react";
 import {useFrame} from "@react-three/fiber";
 import {gsap} from "gsap";
+import {Text} from "@react-three/drei";
 
-export default function Star({ setShowText, setTextContent, index, position, color}) {
+export default function Star({ index, position, color, content}) {
     // This reference will give us direct access to the mesh
     const meshRef = useRef()
 
@@ -42,26 +43,28 @@ export default function Star({ setShowText, setTextContent, index, position, col
 
     const onStarHover = (isHovered) => {
         setHover(isHovered);
-        setShowText(isHovered);
-        setTextContent();
+        // setShowText(isHovered);
+        // setTextContent();
+        setActive(isHovered);
     }
 
     // Return view, these are regular three.js elements expressed in JSX
     return (
         <group
             key={index}
-            onPointerOver={(event) => onStarHover(true)}
-            onPointerOut={(event) => onStarHover(false)}
+            // onPointerOver={(event) => onStarHover(true)}
+            // onPointerOut={(event) => onStarHover(false)}
+            onClick={(event) => onStarHover(!active)}
+            position={position}
         >
             <mesh
-
                 ref={meshRef}
                 onClick={(event) => setActive(!active)}
                 onPointerOver={(event) => setHover(true)}
                 onPointerOut={(event) => setHover(false)}
                 castShadow
                 receiveShadow
-                position={position}
+
             >
                 <sphereGeometry args={[0.5, 32, 32]}/>
                 {/* Adjust radius and detail */}
@@ -71,6 +74,17 @@ export default function Star({ setShowText, setTextContent, index, position, col
                     color={hovered ? 'orange' : color || 'white'}
                 />
             </mesh>
+            {active &&
+                <Text
+                    position={[0, 1, 0]}
+                    scale={[1, 1, 1]}
+                    color="white" // default
+                    anchorX="center" // default
+                    anchorY="middle" // default
+                >
+                    {content}
+                </Text>
+            }
         </group>
     )
 }

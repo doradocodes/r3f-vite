@@ -5,7 +5,7 @@ import Star from "./Star.jsx";
 
 
 
-export default function Scene({ wishes = [], setShowText, setTextContent }) {
+export default function Scene({ wishes = [] }) {
     const [stars, setStars] = useState([]); // Array to store box positions
     const { scene, camera } = useThree();
     const groupRef = useRef();
@@ -49,6 +49,7 @@ export default function Scene({ wishes = [], setShowText, setTextContent }) {
     return (
         <>
             <group
+                wireframe={true}
                 ref={groupRef}
             >
                 {/*<Plane*/}
@@ -65,10 +66,9 @@ export default function Scene({ wishes = [], setShowText, setTextContent }) {
                 {/* Render dynamically added boxes */}
                 {stars.map((star, index) => (
                     <Star
-                        setShowText={setShowText}
-                        setTextContent={() => setTextContent(star.content)}
                         key={index}
                         position={star.position}
+                        content={star.content}
                         scale={[1, 1, 1]}
                     />
                 ))}

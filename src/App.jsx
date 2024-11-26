@@ -1,6 +1,6 @@
 import './App.css'
 import {Canvas, useThree} from "@react-three/fiber";
-import {OrbitControls, PerspectiveCamera} from "@react-three/drei";
+import {OrbitControls, Text, PerspectiveCamera} from "@react-three/drei";
 import Scene from "./Scene.jsx";
 import {useEffect, useRef, useState} from "react";
 import {gsap} from "gsap";
@@ -14,9 +14,6 @@ import testData from "./testData.js";
 function App() {
     const [wishes, setWishes] = useState(testData); // State to store wishes
 
-    const [showText, setShowText] = useState(false); // State to show/hide the text
-    const [textContent, setTextContent] = useState('Send me a wish'); // State to store the text content
-    const textRef = useRef(); // Ref for the <span> element
 
     // Update span position on mouse move
     useEffect(() => {
@@ -77,6 +74,7 @@ function App() {
                     <ToneMapping/>
                 </EffectComposer>
                 <AnimatedCamera/>
+
                 <OrbitControls
                     // enablePan={false}
                     // enableZoom={true}
@@ -88,22 +86,8 @@ function App() {
 
                 <Scene
                     wishes={wishes}
-                    setShowText={setShowText}
-                    setTextContent={setTextContent}
                 />
             </Canvas>
-            <span
-                ref={textRef}
-                className={'text'}
-                style={{
-                    opacity: showText ? 1 : 0,
-                    position: "absolute",
-                    pointerEvents: "none", // Prevent interfering with mouse events
-                    // transform: "translate(-50%, -50%)", // Center span relative to cursor
-                }}
-            >
-                {textContent}
-            </span>
         </div>
     )
 }
